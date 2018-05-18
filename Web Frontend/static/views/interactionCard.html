@@ -1,0 +1,157 @@
+<div class="card">
+  <div class="card-header">
+    Simple Interaction Template
+  </div>
+  <div class="card-body">
+
+    <!--CHECKBOXES FOR ADVERTIZING-->
+    <div class="form-group" style="padding:20px;">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked>
+        <label class="form-check-label" for="exampleRadios2">
+          Amazon Alexa <img style="height: 16px; width:16px;" src="static/assets/alexaIcon.png">
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+        <label class="form-check-label" for="exampleRadios3">
+          Google Home <img style="height: 16px; width:16px;" src="static/assets/googleHomeIcon.png">
+        </label>
+      </div>
+    </div>
+
+
+    <!--First NAME-->
+    <div class="form-group">
+      <label>First Name</label>
+      <input  class="form-control" id="firstName"  placeholder="e.g. John">
+    </div>
+
+    <!--Last NAME-->
+    <div class="form-group">
+      <label>Last Name</label>
+      <input  class="form-control" id="lastName"  placeholder="e.g. Smith">
+    </div>
+
+    <!--Last NAME-->
+    <div class="form-group">
+      <label>Verification Email</label>
+      <input  class="form-control" id="email"  placeholder="e.g. you@example.com">
+    </div>
+
+    <!--SKILL NAME-->
+    <div class="form-group">
+      <label>What is the name you want to appear in the Amazon or Google store?</label>
+      <input  class="form-control" id="skillName"  placeholder="e.g. Apple Color Finder">
+      <small id="emailHelp" class="form-text text-muted">
+        MetaVoice application name
+      </small>
+    </div>
+
+    <br>
+
+    <!--INVOCATION NAME-->
+    <div class="form-group">
+      <label>What do you want people to say to invoke or start your MetaVoice application?</label>
+      <input  class="form-control" id="invocationName"  placeholder="e.g. Apple Color Finder">
+      <small id="emailHelp" class="form-text text-muted">
+        Invocation Name
+      </small>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label>What should people ask or say to your voice application?</label>
+      <input  class="form-control utterance-box" id="utterance1" placeholder="e.g. What color are apples?">
+      <input  class="form-control utterance-box" id="utterance2" placeholder="e.g. Apples are what color?">
+      <input  class="form-control utterance-box" id="utterance3" placeholder="e.g. Apple colors">
+      <input  class="form-control utterance-box" id="utterance4" placeholder="e.g. Are apples red?">
+      <input  class="form-control utterance-box" id="utterance5" placeholder="e.g. Are apples green?">
+      <small id="emailHelp" class="form-text text-muted">
+        Utterances
+      </small>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label>What will your voice application say back?</label>
+      <input  class="form-control" id="response1" placeholder="e.g. Apples are red">
+      <small id="emailHelp" class="form-text text-muted">
+        Response
+      </small>
+    </div>
+
+    <!--PUBLISHING INFORMATION-->
+
+    <br>
+
+    <!--CATEGORY-->
+    <label>What category will your MetaVoice application show up as on the store?</label>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="categoryDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-bind="category"></button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item category-item" ng-repeat="x in categories" ng-click="switchCategory(x)" href="">{{x}}</a>
+      </div>
+    </div>
+
+    <br>
+
+    <!--DESCRIPTIONS-->
+    <div class="form-group">
+      <label>Enter descriptions of your MetaVoice application</label>
+      <input  class="form-control" id="shortDescription"
+      placeholder="Enter a short description of your skill, the one liner.">
+      <textarea style="margin-top: 10px" id="longDescription" placeholder="Enter the full description of your skill" class="form-control utterance-box"></textarea>
+    </div>
+
+    <br>
+
+    <!--KEYWORDS-->
+    <label>What keywords do you want your MetaVoice application to have?</label>
+    <input  class="form-control" id="keywords"
+    placeholder="Enter keywords for your skill separated by commas">
+
+    <!--SUBMIT-->
+    <div class="nextButtonContainer">
+      <button type="button" id="customInteractionNextButton" class="btn btn-primary" name="button" data-toggle="modal" data-target="#areYouSure">Next</button>
+      <!--button type="button" id="customInteractionBackButton" class="btn btn-danger" name="button" ng-click="destroy()">Back</button-->
+    </div>
+
+
+
+    <!-- Are you sure modal: submits application when you click next -->
+    <div class="modal fade" id="areYouSure" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            You are about to publish your Alexa Skill. Are you sure?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Edit My Skill</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#whatsNext" ng-click="submit()">Yes, Publish My Skill</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- whats next modal -->
+    <div class="modal fade" id="whatsNext" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thank You!</h5>
+          </div>
+          <div class="modal-body">
+            Your new Alexa skill has been created. You will receive a verification email from us allowing you to submit your new skill to the Alexa skill store. Please check your inbox. Amazon usually takes 12-24 hours to approve all new skills. We will notify you via email when your new skill is available in the store and for your friends to enable and use with their Echo or other Alexa device.
+            <br><br>
+            Thank you for using Bluemarble. 
+            <br><br>
+            For more information go to <a href="http://www.xpollin.com">http://www.xpollin.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

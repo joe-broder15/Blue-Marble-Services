@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-header">
+    Template
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Select a template for your power</h4>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="templateDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{templateType}}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" ng-click="switchTemplate('Alexa Flash Briefing')" href="">Alexa Flash Briefing (Coming Soon)</a>
+        <a class="dropdown-item" ng-click="switchTemplate('Alexa Interaction')" href="">Alexa Interaction</a>
+      </div>
+    </div>
+    <div class="nextButtonContainer">
+      <button type="button" id="templateSelectorNextButton" class="btn btn-primary" name="button" ng-click="nextCard()">Next</button>
+    </div>
+  </div>
+</div>
